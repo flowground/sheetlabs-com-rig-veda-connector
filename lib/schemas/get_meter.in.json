@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "meter": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

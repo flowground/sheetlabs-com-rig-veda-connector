@@ -1,0 +1,146 @@
+{
+    "title": "rv",
+    "description": "This API returns information about all of the verses in Rig Veda. The results are JSON objects that contain the name of the god, poet, and meter of the verses in Rig Veda, the category of the god and the poet, and the mandal and sukta number.",
+    "docsUrl": "https://aninditabasu.github.io/indica/",
+    "url": "https://api.apis.guru/v2/specs/sheetlabs.com/rig-veda/1.1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://sheetlabs.com/IND/rv",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_": {
+            "main": "./lib/actions/get_.js",
+            "title": "Fetch all records from the database",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_mandal": {
+            "main": "./lib/actions/get_mandal.js",
+            "title": "Fetch all verses in a specific book",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_mandal.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_meter": {
+            "main": "./lib/actions/get_meter.js",
+            "title": "Fetch all verses composed in a specific meter",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_meter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_sungby": {
+            "main": "./lib/actions/get_sungby.js",
+            "title": "Fetch all verses composed by a specific rishi",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_sungby.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_sungbycategory": {
+            "main": "./lib/actions/get_sungbycategory.js",
+            "title": "Fetch all verses composed by a specific category of beings",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_sungbycategory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_sungfor": {
+            "main": "./lib/actions/get_sungfor.js",
+            "title": "Fetch all verses addressed to a specific god, goddess, or object",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_sungfor.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_sungforcategory": {
+            "main": "./lib/actions/get_sungforcategory.js",
+            "title": "Fetch all verses composed for a specific category",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_sungforcategory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

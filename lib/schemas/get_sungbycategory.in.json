@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "sungbycategory": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "animal",
+                "demon male",
+                "divine female",
+                "divine male",
+                "human female",
+                "human male"
+            ]
+        }
+    }
+}

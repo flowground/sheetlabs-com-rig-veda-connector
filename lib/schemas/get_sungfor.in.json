@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "sungfor": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
